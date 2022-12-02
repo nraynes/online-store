@@ -1,6 +1,6 @@
-# App Template
+# Online Store
 
-This is a template code base for a single page web application using
+This is a template code base for an ecommerce single page web application using
 React framework. I am a fully functional full stack web application
 equipped with JWT authentication, a color picker, profile editor &
 profile photos, common page, encryption, full app testing with unit
