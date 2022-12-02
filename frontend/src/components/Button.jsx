@@ -8,6 +8,7 @@ function Button({ children, sx, ...args }) {
     <GoogleButton
       sx={{
         color: `rgba(${componentColor.opposingText.main})`,
+        borderRadius: '0',
         backgroundColor: `rgba(${componentColor.main}, ${buttonOpacity})`,
         '&:hover': {
           backgroundColor: `rgba(${componentColor.light}, ${buttonOpacity})`,

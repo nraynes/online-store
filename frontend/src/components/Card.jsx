@@ -5,8 +5,8 @@ import '@/styles/fade.css';
 
 function Card({ children, sx, type, ...args }) {
   const sxObj = {
-    boxShadow: '0 0 1rem 0 rgba(255, 255, 255, .3)',
-    borderRadius: '1em',
+    boxShadow: 'rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px',
+    // borderRadius: '1em',
     maxWidth: '100vw',
     margin: '1em',
     animation: 'fade-in-from-center 0.5s',

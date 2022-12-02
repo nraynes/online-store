@@ -23,7 +23,7 @@ describe('Top Bar Component Tests', () => {
   test('Should have title in top bar.', async () => {
     render(<TestComponent />);
     await waitFor(() => {
-      const element = screen.getByText(/App Template/i);
+      const element = screen.getByText(/Online Store/i);
       expect(element).toBeInTheDocument();
     });
   });

@@ -18,9 +18,9 @@ export const darkModifier = 20;
 and light and dark versions of each color will be created in the colorTheme.js file automatically.*/
 const defaultTheme = {
   primaryOne: {
-    red: 255,
-    green: 255,
-    blue: 255,
+    red: 225,
+    green: 225,
+    blue: 225,
   },
   primaryTwo: {
     red: 255,
@@ -28,14 +28,14 @@ const defaultTheme = {
     blue: 255,
   },
   secondaryOne: {
-    red: 200,
-    green: 200,
-    blue: 200,
-  },
-  secondaryTwo: {
     red: 255,
     green: 255,
     blue: 255,
+  },
+  secondaryTwo: {
+    red: 206,
+    green: 214,
+    blue: 232,
   },
   secondaryThree: {
     red: 12,

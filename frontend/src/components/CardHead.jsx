@@ -8,18 +8,18 @@ function CardHead({ children, sx, ...args }) {
   return (
     <Box
       sx={{
-        borderBottom: `2px solid rgba(${opposingColor})`,
+        // borderBottom: `2px solid rgba(${opposingColor})`,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
         height: 'max-content',
-        py: '0.3em',
+        pt: '1em',
         ...sx
       }}
       {...args}
     >
-      <Typography sx={{ color: `rgba(${opposingColor})` }} variant="h6">{children}</Typography>
+      <Typography sx={{ color: `rgba(${opposingColor})` }} variant="h4">{children}</Typography>
     </Box>
   );
 }

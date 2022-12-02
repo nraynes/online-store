@@ -10,13 +10,14 @@ import useButtons from '@/stores/topBarButtons';
 import { topBarHeight } from '@/config/config';
 import { useAuth } from '@/lib/auth';
 import { useColorPicker } from '@/stores/colorPickerStore';
-import { backgroundColor, consoleColor, buttonBarOpacity, titleBarOpacity, activateColorDrawer } from '@/config/config';
+import { backgroundColor, componentColor as cColor, buttonBarOpacity, titleBarOpacity, activateColorDrawer } from '@/config/config';
 import ProfileMenu from './ProfileMenu';
 import { gaEventHandler } from '@/utils/misc/analytics';
+import Logo from '@/components/Logo';
 
 function TopBar({ openDropDown }) {
   const gaEventTracker = gaEventHandler('Top Bar');
-  const componentColor = consoleColor;
+  const componentColor = cColor;
   const opposingColor = buttonBarOpacity > 0.5 ? componentColor.opposingText.main : backgroundColor.opposingText.main;
   const { buttons } = useButtons();
   const navigate = useNavigate();
@@ -94,11 +95,14 @@ function TopBar({ openDropDown }) {
         position: 'absolute',
         left: 0,
         right: 0,
+        top: 0,
         height: topBarHeight,
         width: '100%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        backgroundColor: `rgba(${componentColor.main})`,
+        boxShadow: 'rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px',
       }}
     >
       <Box
@@ -110,13 +114,13 @@ function TopBar({ openDropDown }) {
           alignItems: 'center',
           justifyContent: 'flex-end',
           background: titleBarOpacity && `linear-gradient(to right, rgba(${componentColor.main}, ${titleBarOpacity}) 0%, rgba(${componentColor.main}, ${titleBarOpacity}) 75%, rgba(${componentColor.main}, 0) 100%)`,
-          pr: titleBarOpacity && ['2em', '5em'],
+          pr: ['2em', '5em'],
           width: '25em',
           maxWidth: '50%',
-          borderBottom: `2px solid rgba(${backgroundColor.opposingText.main})`,
           animation: 'slide-in-from-left 0.75s',
         }}
       >
+        <Logo/>
         <Typography
           id="app-title"
           data-testid="app-title"
@@ -132,7 +136,7 @@ function TopBar({ openDropDown }) {
               cursor: 'pointer',
             }
           }}
-        >App Template</Typography>
+        >Online Store</Typography>
       </Box>
       <Box
         id="top-bar-button-bar-container"
@@ -149,10 +153,10 @@ function TopBar({ openDropDown }) {
           sx={{
             width: 'max-content',
             pl: ['2em', '5em'],
+            pr: ['0em', '2em'],
             display: 'flex',
             justifyContent: 'flex-end',
             animation: 'slide-in-from-right 0.75s',
-            background: `linear-gradient(to left, rgba(${componentColor.main}, ${buttonBarOpacity}) 0%, rgba(${componentColor.main}, ${buttonBarOpacity}) 75%, rgba(${componentColor.main}, 0) 100%)`,
           }}
         >
           {buttons.home && <IconButton id="home-button" data-testid="home-button" sx={topBarIconSX} description="Home" onClick={homeButton}><HomeIcon sx={{ color: `rgba(${opposingColor})` }} /></IconButton>}
