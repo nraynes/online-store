@@ -318,10 +318,7 @@ describe('Color Picker feature tests', () => {
       .should('have.css', 'background-color', 'rgba(255, 0, 0, 0.5)');
 
     cy.get('[data-testid="app-title-container"]')
-      .should('have.css', 'background', 'rgba(0, 0, 0, 0) linear-gradient(to right, rgba(255, 255, 0, 0.5) 0%, rgba(255, 255, 0, 0.5) 75%, rgba(255, 255, 0, 0) 100%) repeat scroll 0% 0% / auto padding-box border-box');
-
-    cy.get('[data-testid="top-bar-button-bar"]')
-      .should('have.css', 'background', 'rgba(0, 0, 0, 0) linear-gradient(to left, rgba(255, 255, 0, 0.5) 0%, rgba(255, 255, 0, 0.5) 75%, rgba(255, 255, 0, 0) 100%) repeat scroll 0% 0% / auto padding-box border-box');
+      .should('have.css', 'background', 'rgba(0, 0, 0, 0) linear-gradient(to right, rgba(0, 255, 0, 0.5) 0%, rgba(0, 255, 0, 0.5) 75%, rgba(0, 255, 0, 0) 100%) repeat scroll 0% 0% / auto padding-box border-box');
 
     cy.get('[data-testid="login-button"]')
       .click();
@@ -355,16 +352,16 @@ describe('Color Picker feature tests', () => {
       .should('exist');
 
     cy.get('[data-testid="color_box_primary_one"]')
-      .should('have.css', 'background-color', 'rgb(255, 255, 255)');
+      .should('have.css', 'background-color', 'rgb(225, 225, 225)');
 
     cy.get('[data-testid="color_box_primary_two"]')
       .should('have.css', 'background-color', 'rgb(255, 255, 255)');
 
     cy.get('[data-testid="color_box_secondary_one"]')
-      .should('have.css', 'background-color', 'rgb(200, 200, 200)');
+      .should('have.css', 'background-color', 'rgb(255, 255, 255)');
 
     cy.get('[data-testid="color_box_secondary_two"]')
-      .should('have.css', 'background-color', 'rgb(255, 255, 255)');
+      .should('have.css', 'background-color', 'rgb(206, 214, 232)');
 
     cy.get('[data-testid="color_box_secondary_three"]')
       .should('have.css', 'background-color', 'rgb(12, 18, 117)');
@@ -379,7 +376,7 @@ describe('Color Picker feature tests', () => {
     cy.get('[data-testid="form_opacity_setter_slider"]')
       .children('span')
       .children('input')
-      .should('have.attr', 'aria-valuenow', 80);
+      .should('have.attr', 'aria-valuenow', 100);
 
     cy.get('[data-testid="button_opacity_setter_slider"]')
       .children('span')
@@ -404,7 +401,7 @@ describe('Color Picker feature tests', () => {
     cy.get('[data-testid="component_opacity_setter_slider"]')
       .children('span')
       .children('input')
-      .should('have.attr', 'aria-valuenow', 15);
+      .should('have.attr', 'aria-valuenow', 100);
     
     cy.get('[data-testid="color_drawer_close_button"]')
       .click();

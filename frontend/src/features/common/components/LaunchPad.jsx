@@ -3,10 +3,16 @@ import { Box, Typography } from '@mui/material';
 import Button from '@/components/Button';
 import OnlineShopping from '@/assets/onlineShopping.png';
 import { topBarHeight } from '@/config/config';
+import { gaEventHandler } from '@/utils/misc/analytics';
+import { useNavigate } from 'react-router-dom';
 
 function LaunchPad() {
-  const browseCatalogButton = () => {
+  const navigate = useNavigate();
+  const gaEventTracker = gaEventHandler('Landing Page');
 
+  const browseCatalogButton = () => {
+    gaEventTracker('Catalogue button was clicked', 'Brought user to catalogue page');
+    navigate('/catalog');
   };
 
   return (
