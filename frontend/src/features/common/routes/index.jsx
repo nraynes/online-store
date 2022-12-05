@@ -8,12 +8,9 @@ function RootRoutes() {
   const { buttons, setButtons } = useButtons();
   const buttonConfig = {
     colorPicker: true,
-    home: false,
     profile: true,
     logIn: true,
     logOut: true,
-    settings: false,
-    help: false,
   };
   
   useEffect(() => {

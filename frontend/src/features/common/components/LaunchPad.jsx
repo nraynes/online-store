@@ -41,7 +41,7 @@ function LaunchPad() {
           flexDirection: ['column', 'row'],
           height: 'fit-content',
           width: '80%',
-          mt: topBarHeight,
+          mt: `${topBarHeight}em`,
           p: '1em',
           mb: '10em',
         }}

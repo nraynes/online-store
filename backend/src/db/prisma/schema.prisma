@@ -22,6 +22,7 @@ model accounts {
   token tokens[]
   email_key email_temp_keys[]
   pass_key pass_temp_keys[]
+  review reviews[]
 }
 
 model tokens {
@@ -45,4 +46,34 @@ model pass_temp_keys {
   account_id Int
   pass_key String @db.VarChar
   expires DateTime
+}
+
+model categories {
+  category_id Int @default(autoincrement()) @id
+  parent_category Int?
+  category String @db.VarChar
+  deleted_on DateTime?
+  product products[]
+}
+
+model products {
+  product_id Int @default(autoincrement()) @id
+  category categories @relation(fields: [category_id], references: [category_id])
+  category_id Int
+  product String @db.VarChar
+  description String @db.VarChar
+  photo String?
+  price Int
+  deleted_on DateTime?
+  review reviews[]
+}
+
+model reviews {
+  review_id Int @default(autoincrement()) @id
+  account accounts @relation(fields: [account_id], references: [account_id])
+  account_id Int
+  product products @relation(fields: [product_id], references: [product_id])
+  product_id Int
+  rating Int
+  description String @db.VarChar
 }

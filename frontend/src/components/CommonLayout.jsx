@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import { Box, Drawer } from '@mui/material';
 import Button from '@/components/Button';
 import IconButton from '@/components/IconButton';
-import { topBarHeight, bottomBarHeight, onMobile } from '@/config/config';
+import useButtons from '@/stores/topBarButtons';
+import { categoryBarHeight, topBarHeight, bottomBarHeight, onMobile } from '@/config/config';
 import MenuIcon from '@mui/icons-material/Menu';
 import { consoleColor, drawerOpacity, backgroundColor } from '@/config/config';
 
 // mobileDrawerHeaders needs to be the same length as children.
 function CommonLayout({ children, useMobileDrawer, mobileDrawerHeaders }) {
   const [displayChild, setDisplayChild] = useState(0);
+  const increasedHeight = topBarHeight + categoryBarHeight;
   const [open, setOpen] = useState(false);
   const componentColor = consoleColor;
+  const { buttons } = useButtons();
   const opposingColor = drawerOpacity > 0.5 ? componentColor.opposingText.main : backgroundColor.opposingText.main;
   
   return (
@@ -21,10 +24,10 @@ function CommonLayout({ children, useMobileDrawer, mobileDrawerHeaders }) {
         position: 'absolute',
         left: 0,
         right: 0,
-        top: topBarHeight,
-        minHeight: `calc(100vh - ${topBarHeight}${onMobile && useMobileDrawer ? ` - ${bottomBarHeight}` : ''})`,
+        top: `${buttons.catalogBar ? increasedHeight : topBarHeight}em`,
+        minHeight: `calc(100vh - ${buttons.catalogBar ? increasedHeight : topBarHeight}em${onMobile && useMobileDrawer ? ` - ${bottomBarHeight}` : ''})`,
         height: 'max-content',
-        pb: onMobile && useMobileDrawer ? `calc(${bottomBarHeight} + ${topBarHeight})` : 0,
+        pb: onMobile && useMobileDrawer ? `calc(${bottomBarHeight} + ${buttons.catalogBar ? increasedHeight : topBarHeight}em)` : 0,
         display: 'flex',
         justifyContent: 'space-evenly',
         alignItems: 'center',

@@ -10,11 +10,6 @@ function PasswordRoutes() {
   const buttonConfig = {
     colorPicker: true,
     home: true,
-    profile: false,
-    logIn: false,
-    logOut: false,
-    settings: false,
-    help: false,
   };
   
   useEffect(() => {

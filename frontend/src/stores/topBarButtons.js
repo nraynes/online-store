@@ -9,9 +9,28 @@ export const useButtons = create((set) => ({
     logOut: false,
     help: false,
     settings: false,
+    catalogBar: false,
   },
-  setButtons: (value) => set(() => ({
-    buttons: value,
+  setButtons: ({
+    colorPicker = false,
+    home = false,
+    profile = false,
+    logIn = false,
+    logOut = false,
+    help = false,
+    settings = false,
+    catalogBar = false,
+  }) => set(() => ({
+    buttons: {
+      colorPicker,
+      home,
+      profile,
+      logIn,
+      logOut,
+      help,
+      settings,
+      catalogBar,
+    },
   })),
 }));
 

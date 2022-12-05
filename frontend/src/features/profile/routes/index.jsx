@@ -10,10 +10,7 @@ function ProfileRoutes() {
     colorPicker: true,
     home: true,
     profile: true,
-    logIn: false,
     logOut: true,
-    settings: false,
-    help: false,
   };
   
   useEffect(() => {

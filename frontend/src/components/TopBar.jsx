@@ -14,6 +14,7 @@ import { backgroundColor, componentColor as cColor, buttonBarOpacity, titleBarOp
 import ProfileMenu from './ProfileMenu';
 import { gaEventHandler } from '@/utils/misc/analytics';
 import Logo from '@/components/Logo';
+import CatalogBar from '@/components/CatalogBar';
 
 function TopBar({ openDropDown }) {
   const gaEventTracker = gaEventHandler('Top Bar');
@@ -96,11 +97,9 @@ function TopBar({ openDropDown }) {
         left: 0,
         right: 0,
         top: 0,
-        height: topBarHeight,
-        width: '100%',
+        height: `${topBarHeight}em`,
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
+        flexDirection: 'column',
         backgroundColor: `rgba(${componentColor.main})`,
         boxShadow: 'rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px',
       }}
@@ -198,6 +197,11 @@ function TopBar({ openDropDown }) {
           />
         )}
       </Box>
+      {
+        buttons.catalogBar && (
+          <CatalogBar />
+        )
+      }
     </Box>
   );
 }
